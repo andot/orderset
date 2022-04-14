@@ -11,7 +11,7 @@ func NewOrderSet[K comparable]() OrderSet[K] {
 
 func (s *OrderSet[K]) Add(element K) {
 	if _, exist := s.set[element]; !exist {
-		// 透過目前陣列內的元素個數判斷將要放入的索引位置
+		// Get index by array length
 		index := len(s.order)
 		s.set[element] = index
 		s.order = append(s.order, element)
@@ -20,7 +20,7 @@ func (s *OrderSet[K]) Add(element K) {
 
 func (s *OrderSet[K]) Del(element K) {
 	if index, exist := s.set[element]; exist {
-		// 取得索引刪除元素
+		// Get index and delete element
 		delete(s.set, element)
 		s.order = append(s.order[:index], s.order[index+1:]...)
 		s.reIndex()

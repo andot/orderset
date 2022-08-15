@@ -1,3 +1,3 @@
-module github.com/jtes5401/go-orderset
+module github.com/andot/orderset
 
 go 1.18

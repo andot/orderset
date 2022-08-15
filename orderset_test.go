@@ -1,4 +1,4 @@
-package go_orderset
+package orderset
 
 import (
 	"testing"

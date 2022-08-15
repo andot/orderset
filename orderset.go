@@ -1,4 +1,4 @@
-package go_orderset
+package orderset
 
 type OrderSet[K comparable] struct {
 	set   map[K]int
@@ -28,6 +28,14 @@ func (s *OrderSet[K]) Del(element K) {
 }
 
 func (s *OrderSet[K]) Contains(element K) bool {
+	if len(s.order) < 15 {
+		for _, v := range s.order {
+			if element == v {
+				return true
+			}
+		}
+		return false
+	}
 	_, exist := s.set[element]
 	return exist
 }

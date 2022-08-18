@@ -75,9 +75,10 @@ func TestOrderSet_ToSlice(t *testing.T) {
 	var set = NewOrderSet[int]()
 	set.Add(99)
 	set.Add(88)
+	set2 := set
 	set.Add(77)
 
-	s := set.ToSlice()
+	s := set2.ToSlice()
 
 	count := len(s)
 	if count != 3 {

@@ -5,8 +5,8 @@ type OrderSet[K comparable] struct {
 	order []K
 }
 
-func NewOrderSet[K comparable]() OrderSet[K] {
-	return OrderSet[K]{set: make(map[K]int), order: make([]K, 0)}
+func NewOrderSet[K comparable]() *OrderSet[K] {
+	return &OrderSet[K]{set: make(map[K]int), order: make([]K, 0)}
 }
 
 func (s *OrderSet[K]) Add(element K) {

@@ -28,6 +28,9 @@ func (s *OrderSet[K]) Del(element K) {
 }
 
 func (s *OrderSet[K]) Contains(element K) bool {
+	if s == nil {
+		return false
+	}
 	if len(s.order) < 15 {
 		for _, v := range s.order {
 			if element == v {
@@ -41,10 +44,16 @@ func (s *OrderSet[K]) Contains(element K) bool {
 }
 
 func (s *OrderSet[K]) ToSlice() []K {
+	if s == nil {
+		return nil
+	}
 	return s.order
 }
 
 func (s *OrderSet[K]) Count() int {
+	if s == nil {
+		return 0
+	}
 	return len(s.order)
 }
 

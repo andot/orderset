@@ -43,6 +43,24 @@ func (s *OrderSet[K]) Contains(element K) bool {
 	return exist
 }
 
+func (s *OrderSet[K]) Index(element K) int {
+	if s == nil {
+		return -1
+	}
+	if len(s.order) < 15 {
+		for i, v := range s.order {
+			if element == v {
+				return i
+			}
+		}
+		return -1
+	}
+	if i, exist := s.set[element]; exist {
+		return i
+	}
+	return -1
+}
+
 func (s *OrderSet[K]) ToSlice() []K {
 	if s == nil {
 		return nil

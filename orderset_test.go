@@ -5,10 +5,10 @@ import (
 )
 
 func TestOrderSet_Add(t *testing.T) {
-	var set = NewOrderSet[int]()
-	set.Add(99)
-	set.Add(88)
-	set.Add(77)
+	var set *OrderSet[int]
+	set = set.Add(99)
+	set = set.Add(88)
+	set = set.Add(77)
 
 	if !set.Contains(99) && !set.Contains(88) && !set.Contains(77) {
 		t.Error("Contain error")
@@ -16,10 +16,10 @@ func TestOrderSet_Add(t *testing.T) {
 }
 
 func TestOrderSet_Contains(t *testing.T) {
-	var set = NewOrderSet[int]()
-	set.Add(99)
-	set.Add(88)
-	set.Add(77)
+	var set *OrderSet[int]
+	set = set.Add(99)
+	set = set.Add(88)
+	set = set.Add(77)
 
 	b1 := set.Contains(99)
 	if !b1 {

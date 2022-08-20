@@ -9,16 +9,23 @@ func NewOrderSet[K comparable]() *OrderSet[K] {
 	return &OrderSet[K]{set: make(map[K]int), order: make([]K, 0)}
 }
 
-func (s *OrderSet[K]) Add(element K) {
+func (s *OrderSet[K]) Add(element K) *OrderSet[K] {
+	if s == nil {
+		s = NewOrderSet[K]()
+	}
 	if _, exist := s.set[element]; !exist {
 		// Get index by array length
 		index := len(s.order)
 		s.set[element] = index
 		s.order = append(s.order, element)
 	}
+	return s
 }
 
 func (s *OrderSet[K]) Del(element K) {
+	if s == nil {
+		return
+	}
 	if index, exist := s.set[element]; exist {
 		// Get index and delete element
 		delete(s.set, element)
